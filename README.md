@@ -12,7 +12,7 @@ A lab DGX Spark was crashing under Ollama on larger models — likely a unified-
 
 ## Quickstart (Mac / MLX)
 
-> `mlx-vlm` flags move fast. If a command errors, run `python -m mlx_vlm.generate --help`. Video support needs a recent `mlx-vlm`.
+> `mlx-vlm` flags move fast. If a command errors, run `python -m mlx_vlm.generate --help`.
 
 ```bash
 uv venv --python 3.12 && source .venv/bin/activate
@@ -22,16 +22,31 @@ uv pip install mlx-vlm
 huggingface-cli download Aliyovic/molmo2-4b-mlx-8bit
 # or: huggingface-cli download mlx-community/Molmo2-8B-4bit
 
-# smoke test: video -> free text
-python -m mlx_vlm.generate \
-  --model mlx-community/Molmo2-8B-4bit \
-  --video path/to/sample_procedure.mp4 \
-  --prompt "Describe what happens in this video, step by step." \
-  --max-tokens 512
-
 # ordered, timestamped grounding -> strict JSON
-python ground.py path/to/sample_procedure.mp4
+python ground.py path/to/sample_procedure.mp4 [every_seconds]   # default: 1 frame / 6s
 ```
+
+### Getting a sample clip
+
+No real procedure footage yet? Grab a short public stand-in into `clips/` (gitignored — clips are never committed). Needs `yt-dlp`, `ffmpeg`, **and a JavaScript runtime** — modern YouTube hands back a JS challenge that `yt-dlp` can only solve with one:
+
+```bash
+brew install deno          # JS runtime for yt-dlp's challenge solver
+uv pip install yt-dlp      # ffmpeg should already be on PATH
+
+mkdir -p clips
+yt-dlp \
+  --remote-components ejs:github \
+  --match-filter "duration < 75 & duration > 20" \
+  -f "mp4[height<=480]/best[height<=480]" \
+  --no-playlist --max-downloads 1 \
+  -o "clips/standin.%(ext)s" \
+  "ytsearch10:how to make a quesadilla step by step"
+```
+
+- `--remote-components ejs:github` is the part that matters — it fetches the EJS solver `yt-dlp` runs under `deno` to clear YouTube's challenge. Without it (or without a JS runtime), extraction falls back to a degraded mode with missing formats.
+- `ytsearch10:<query>` searches instead of needing a URL; `--match-filter` keeps it short.
+- Swap the query / drop the `*.mp4` filter for real footage. These clips are transient local research inputs, not redistributed.
 
 `ground.py` forces the output contract used for scoring:
 
@@ -39,7 +54,11 @@ python ground.py path/to/sample_procedure.mp4
 [{"step": "<short label>", "start": <seconds>, "end": <seconds>}, ...]
 ```
 
-Iterate the prompt until output reliably parses in temporal order. That schema carries over unchanged to the Spark.
+That schema carries over unchanged to the Spark.
+
+### Gotcha: native `--video` doesn't ground (mlx-vlm 0.6.3)
+
+`mlx_vlm.generate --video ...` accepts the flag but **does not inject frames** for Molmo2 — the model replies *"I can't view videos."* The single-image path works fine, so `ground.py` samples frames with `ffmpeg` (`fps=1/every`) and feeds them as a **timestamped multi-image sequence**. Requires `ffmpeg` on PATH. This also mirrors how the vLLM/Spark side will take sampled frames. Tune `every_seconds` to trade timestamp resolution against frame count / memory.
 
 ### Optional: OpenAI-compatible server (matches the Spark API)
 
