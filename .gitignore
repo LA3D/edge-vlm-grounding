@@ -1,0 +1,20 @@
+# Python / uv
+.venv/
+__pycache__/
+*.pyc
+.python-version
+
+# Models & data (don't commit weights or clips)
+*.mp4
+*.mov
+*.safetensors
+*.gguf
+models/
+data/
+clips/
+
+# HF cache
+.cache/
+
+# macOS
+.DS_Store
