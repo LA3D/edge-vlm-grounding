@@ -2,6 +2,8 @@
 
 **Date**: 2026-06-22 · **Hardware**: Apple Silicon (MLX), mlx-vlm 0.6.3 · **Scoring**: manual (LLM-judge harness TBD)
 
+> **Update ([002](../002-qwen-fps-sweep/REPORT.md))**: Qwen's "timeline compressed to 10–80s" result below was an **fps artifact** — we sampled ~30× below its trained regime. Corrected (fps ≈ 0.5), Qwen2.5-VL-7B covers the full clip with correct ordering. The Molmo2-frames vs Qwen-video comparison here is also an unfair axis. Read 001 for the method findings (ordering reliable, boundaries soft — still holds); trust 002 for the Qwen verdict.
+
 ## Hypothesis
 
 Does a model *designed* for native video temporal grounding (Qwen2.5-VL: absolute-time encoding, dynamic FPS) produce sharper step timestamps than Molmo2 fed through the repo's frames-as-images workaround? And does either give timestamps we can trust for order-of-operations?

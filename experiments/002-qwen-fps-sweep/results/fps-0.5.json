@@ -1,0 +1,107 @@
+{
+  "fps": 0.5,
+  "output": [
+    {
+      "step": "First rinse: Use distilled water",
+      "start": 5.0,
+      "end": 10.0
+    },
+    {
+      "step": "Wash bulb of pipette",
+      "start": 10.0,
+      "end": 15.0
+    },
+    {
+      "step": "Second rinse: With acid",
+      "start": 15.0,
+      "end": 20.0
+    },
+    {
+      "step": "Fill pipette for transfer",
+      "start": 20.0,
+      "end": 25.0
+    },
+    {
+      "step": "Add indicator",
+      "start": 40.0,
+      "end": 45.0
+    },
+    {
+      "step": "First rinse: Use distilled water",
+      "start": 60.0,
+      "end": 65.0
+    },
+    {
+      "step": "Second rinse: With alkali",
+      "start": 80.0,
+      "end": 85.0
+    },
+    {
+      "step": "Fill burette for titration",
+      "start": 100.0,
+      "end": 105.0
+    },
+    {
+      "step": "Solution dripping into flask",
+      "start": 120.0,
+      "end": 125.0
+    },
+    {
+      "step": "Don't forget to swirl flask",
+      "start": 140.0,
+      "end": 145.0
+    },
+    {
+      "step": "Note down rough reading",
+      "start": 160.0,
+      "end": 165.0
+    },
+    {
+      "step": "Fill burette for titration",
+      "start": 180.0,
+      "end": 185.0
+    },
+    {
+      "step": "Solution dripping into flask",
+      "start": 200.0,
+      "end": 205.0
+    },
+    {
+      "step": "Don't forget to swirl flask",
+      "start": 220.0,
+      "end": 225.0
+    },
+    {
+      "step": "Note down rough reading",
+      "start": 240.0,
+      "end": 245.0
+    },
+    {
+      "step": "Fill burette for titration",
+      "start": 260.0,
+      "end": 265.0
+    },
+    {
+      "step": "Solution dripping into flask",
+      "start": 280.0,
+      "end": 285.0
+    },
+    {
+      "step": "Don't forget to swirl flask",
+      "start": 300.0,
+      "end": 305.0
+    },
+    {
+      "step": "Note down rough reading",
+      "start": 320.0,
+      "end": 325.0
+    }
+  ],
+  "n_steps": 19,
+  "coverage": [
+    5.0,
+    325.0
+  ],
+  "seconds": 74.7,
+  "degenerate": false
+}

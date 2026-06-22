@@ -1,0 +1,62 @@
+{
+  "fps": 0.0667,
+  "output": [
+    {
+      "step": "Rinse the burette with distilled water",
+      "start": 10.0,
+      "end": 15.0
+    },
+    {
+      "step": "Rinse the burette with the acid",
+      "start": 15.0,
+      "end": 20.0
+    },
+    {
+      "step": "Fill the burette with the acid",
+      "start": 20.0,
+      "end": 25.0
+    },
+    {
+      "step": "Add a few drops of indicator to the flask",
+      "start": 25.0,
+      "end": 30.0
+    },
+    {
+      "step": "Titrate the solution",
+      "start": 30.0,
+      "end": 35.0
+    },
+    {
+      "step": "Record the initial and final readings",
+      "start": 35.0,
+      "end": 40.0
+    },
+    {
+      "step": "Calculate the titre",
+      "start": 40.0,
+      "end": 45.0
+    },
+    {
+      "step": "Repeat the titration for accuracy",
+      "start": 45.0,
+      "end": 50.0
+    },
+    {
+      "step": "Average the titres",
+      "start": 50.0,
+      "end": 55.0
+    },
+    {
+      "step": "Calculate the concentration of the acid",
+      "start": 55.0,
+      "end": 60.0
+    }
+  ],
+  "n_steps": 10,
+  "coverage": [
+    10.0,
+    60.0
+  ],
+  "seconds": 47.6,
+  "degenerate": false
+}

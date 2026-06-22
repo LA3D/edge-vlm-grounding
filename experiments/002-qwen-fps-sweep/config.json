@@ -1,0 +1,12 @@
+{
+  "id": "002-qwen-fps-sweep",
+  "clip": "clips/titration.mp4",
+  "clip_source": "https://www.youtube.com/watch?v=dZWxldXPIX8",
+  "clip_duration_s": 329.7,
+  "hardware": "Apple Silicon (MLX), mlx-vlm 0.6.3",
+  "model": "mlx-community/Qwen2.5-VL-7B-Instruct-bf16",
+  "path": "mlx_vlm.generate --video (generic path; the qwen-vl-utils video_generate path is beta and collapses the clip to one frame)",
+  "max_tokens": 1024,
+  "prompt": "You are analyzing a procedure video that is 330 seconds long. Identify, in temporal order, each distinct step. For every step give its start and end time in SECONDS from the start of the video. Return ONLY a JSON array: [{\"step\": \"<short label>\", \"start\": <seconds>, \"end\": <seconds>}, ...]. No text outside the array.",
+  "fps_sweep": [0.0667, 0.2, 0.5]
+}

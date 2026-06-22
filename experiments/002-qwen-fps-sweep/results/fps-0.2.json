@@ -1,0 +1,62 @@
+{
+  "fps": 0.2,
+  "output": [
+    {
+      "step": "Rinse pipette bulb with distilled water",
+      "start": 10.0,
+      "end": 15.0
+    },
+    {
+      "step": "Rinse pipette bulb with acid",
+      "start": 15.0,
+      "end": 20.0
+    },
+    {
+      "step": "Fill pipette for transfer",
+      "start": 20.0,
+      "end": 25.0
+    },
+    {
+      "step": "Add indicator to the flask",
+      "start": 45.0,
+      "end": 50.0
+    },
+    {
+      "step": "Fill burette for titration",
+      "start": 75.0,
+      "end": 80.0
+    },
+    {
+      "step": "Titrate the solution",
+      "start": 100.0,
+      "end": 110.0
+    },
+    {
+      "step": "Record initial and final readings",
+      "start": 130.0,
+      "end": 140.0
+    },
+    {
+      "step": "Calculate the titre",
+      "start": 150.0,
+      "end": 160.0
+    },
+    {
+      "step": "Repeat the titration",
+      "start": 170.0,
+      "end": 180.0
+    },
+    {
+      "step": "Average the titres",
+      "start": 190.0,
+      "end": 200.0
+    }
+  ],
+  "n_steps": 10,
+  "coverage": [
+    10.0,
+    200.0
+  ],
+  "seconds": 53.9,
+  "degenerate": false
+}
