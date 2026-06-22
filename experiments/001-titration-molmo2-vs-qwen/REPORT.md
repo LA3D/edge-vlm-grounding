@@ -39,7 +39,7 @@ Raw outputs in `results/`. Qwen-3B is kept as a negative result: small VLMs coll
 ## Findings
 
 1. **Ordering is the reliable signal; boundaries are not.** Both working models recover the correct step *sequence*. Neither produces trustworthy *timestamps* — Molmo2 snaps to the frame grid we injected; Qwen invents its own evenly-spaced guesses and compresses the whole procedure into the first 80s.
-2. **Changing the model and the input path changed the failure mode, not the failure.** Grid-snap → timeline-compression. This is strong evidence the lever is the **output paradigm** (text-numeral generation is the weak one; continuous temporal decoding wins — see `@jin-2026-video-llm-time`, arXiv 2604.08966), not the backbone or native vs. sampled input.
+2. **Changing the model and the input path changed the failure mode, not the failure.** Grid-snap → timeline-compression. This is strong evidence the lever is the **output paradigm** (text-numeral generation is the weak one; continuous temporal decoding wins — see [How Should Video LLMs Output Time?](https://arxiv.org/abs/2604.08966)), not the backbone or native vs. sampled input.
 3. **Qwen2.5-VL-7B has stronger procedure priors.** It surfaced the real titration prep (rinse burette with water, then acid, then fill) that Molmo2 skipped — a point in its favor for *semantic* step extraction, independent of timing.
 4. **Native video works in mlx-vlm for Qwen2.5-VL** (5,186 prompt tokens = frames genuinely tokenized), unlike Molmo2. But it did not fix boundaries — see finding 2.
 
