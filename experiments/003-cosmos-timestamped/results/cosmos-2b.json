@@ -1,0 +1,65 @@
+{
+  "model": "hzang/Cosmos-Reason2-2B-8bit",
+  "every_s": 15,
+  "n_frames": 22,
+  "output": [
+    {
+      "step": "Prepare burette and burette cleaning",
+      "start": 0,
+      "end": 15
+    },
+    {
+      "step": "Fill burette with acid",
+      "start": 15,
+      "end": 30
+    },
+    {
+      "step": "Titrate solution with burette",
+      "start": 30,
+      "end": 120
+    },
+    {
+      "step": "Record titre values",
+      "start": 120,
+      "end": 150
+    },
+    {
+      "step": "Clean burette with acid",
+      "start": 150,
+      "end": 180
+    },
+    {
+      "step": "Record titre values",
+      "start": 180,
+      "end": 210
+    },
+    {
+      "step": "Record titre values",
+      "start": 210,
+      "end": 240
+    },
+    {
+      "step": "Record titre values",
+      "start": 240,
+      "end": 270
+    },
+    {
+      "step": "Record titre values",
+      "start": 270,
+      "end": 300
+    },
+    {
+      "step": "Record titre values",
+      "start": 300,
+      "end": 330
+    }
+  ],
+  "n_steps": 10,
+  "coverage": [
+    0,
+    330
+  ],
+  "seconds": 18.3,
+  "degenerate": false,
+  "raw": "```json\n[\n  {\"step\": \"Prepare burette and burette cleaning\", \"start\": 0, \"end\": 15},\n  {\"step\": \"Fill burette with acid\", \"start\": 15, \"end\": 30},\n  {\"step\": \"Titrate solution with burette\", \"start\": 30, \"end\": 120},\n  {\"step\": \"Record titre values\", \"start\": 120, \"end\": 150},\n  {\"step\": \"Clean burette with acid\", \"start\": 150, \"end\": 180},\n  {\"step\": \"Record titre values\", \"start\": 180, \"end\": 210},\n  {\"step\": \"Record titre values\", \"start\": 210, \"end\": 240},\n  {\"step\": \"Record titre values\", \"start\": 240, \"end\": 270},\n  {\"step\": \"Record titre values\", \"start\": 270, \"end\": 300},\n  {\"step\": \"Record titre values\", \"start\": 300, \"end\": 330}\n]\n```"
+}

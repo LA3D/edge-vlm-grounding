@@ -8,6 +8,7 @@ Self-contained experiment logs for edge-VLM procedure grounding. One folder per 
 |---|-----------|----------|----------|---------|
 | [001](001-titration-molmo2-vs-qwen/REPORT.md) | Molmo2 vs Qwen2.5-VL on titration | Does native-video grounding beat frames-as-images on timestamps? | VLMs are reliable step *sequencers*, unreliable *clocks*. Qwen's coverage collapse was later traced to an fps artifact — see 002. | manual |
 | [002](002-qwen-fps-sweep/REPORT.md) | Qwen2.5-VL fps sweep (corrected) | Was 001's Qwen coverage collapse a model limit or a sampling artifact? | **Artifact.** Coverage scales with fps (60s→200s→325s); at fps≈0.5 Qwen2.5-VL-7B covers the full clip with correct ordering + repeats. Boundaries still soft. | manual |
+| [003](003-cosmos-timestamped/REPORT.md) | Cosmos-Reason2-2B w/ on-frame timestamps | Does Cosmos ground when given its required input (timestamps drawn on frames)? | **Yes.** Bare frames loop/placeholder; with a Pillow `t=Ns` overlay it covers 0–330s with valid JSON. 2B semantics trail Qwen-7B — fair fight is Cosmos-8B (no MLX build; Spark target). | manual |
 
 ## Conventions
 
