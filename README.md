@@ -4,7 +4,7 @@ Back-of-the-envelope experiments using small, edge-deployable vision-language mo
 
 Anchor model: **Molmo2** (Ai2), with **Qwen2.5-VL** (Alibaba) and **Cosmos-Reason2** (NVIDIA) in a local MLX comparison ahead of a bake-off on the NVIDIA DGX Spark (GB10 Grace Blackwell) via vLLM/NVFP4. The calling code is kept OpenAI-API-shaped so Mac and Spark are swappable by base URL.
 
-Full plan, phases, and research context live in the Obsidian vault (see `CLAUDE.md`).
+Detailed planning and broader research context live in the author's private notes; this repo holds the runnable parts and the experiment findings — see [`experiments/`](experiments/).
 
 ## Why
 
@@ -40,7 +40,7 @@ The bake-off isn't Molmo2-only — we're comparing three open VLMs locally befor
 [{"step": "<short label>", "start": <seconds>, "end": <seconds>}, ...]
 ```
 
-Steps are in temporal order. Don't change the schema without updating the vault PLAN — Phase 2 scoring depends on it.
+Steps are in temporal order. The schema is the scoring contract — don't change it lightly.
 
 ## Quickstart (Mac / MLX)
 
