@@ -10,5 +10,7 @@
   "font": "/System/Library/Fonts/Supplemental/Arial.ttf",
   "fontsize": 44,
   "max_tokens": 2048,
+  "official_fps": 0.5,
+  "official_prompt": "Describe the notable events in the provided video. Provide the result in json format with 'mm:ss.ff' format for time depiction for each event. Use keywords 'start', 'end' and 'caption' in the json output.",
   "prompt": "Each frame has a timestamp 't=Ns' at the bottom-left, sampled in order from a 330-second titration video. First reason briefly about the procedure. Then identify the MAIN distinct steps: group consecutive frames that show the same action (there are roughly 6 to 12 steps, NOT one per frame). For each step give a short DESCRIPTIVE label of what is being done (e.g. 'rinse burette with acid'), and its start and end time in seconds read from the on-screen timestamps. End with ONLY a valid JSON array, each element an object with braces: [{\"step\": \"description\", \"start\": <seconds>, \"end\": <seconds>}, ...]."
 }

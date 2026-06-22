@@ -1,0 +1,13 @@
+{
+  "mode": "official",
+  "fps": 0.5,
+  "n_events": 5,
+  "unique_captions": 5,
+  "coverage_s": [
+    0.0,
+    4.0
+  ],
+  "seconds": 29.2,
+  "degenerate": true,
+  "raw": "<|im_end|>\n<|im_start|>assistant\n\n```json\n[\n  {\n    \"start\": \"00:00.000\",\n    \"end\": \"00:00.000\",\n    \"caption\": \"The video opens with a title slide featuring the text \\\"Introduction to Titration\\\" and \\\"Video 4: Experimental Procedures,\\\" overlaid on a laboratory scene showing a burette with pink liquid, safety goggles, and laboratory equipment in the background. The slide fades out smoothly.\"\n  },\n  {\n    \"start\": \"00:00.000\",\n    \"end\": \"00:01.000\",\n    \"caption\": \"The scene transitions to a laboratory classroom setting where a scientist in a white lab coat, wearing safety goggles, stands at a workstation. Worksheets, chemicals labeled \\\"NaOH\\\" and \\\"HCl,\\\" gloves, and other lab equipment are visible on the table. Text overlays instruct viewers to \\\"Check procedure in the worksheet.\\\" The scientist appears poised to begin an experiment.\"\n  },\n  {\n    \"start\": \"00:01.000\",\n    \"end\": \"00:02.800\",\n    \"caption\": \"The scientist places a burette into a flask containing pink liquid and begins dispensing it slowly through the burette into the flask. Text overlays instruct \\\"First rinse: Use distilled water.\\\" He carefully controls the flow rate, ensuring precision in the titration process. The classroom environment remains consistent with bulletin boards, chalkboards, and scientific posters decorating the walls.\"\n  },\n  {\n    \"start\": \"00:02.800\",\n    \"end\": \"00:04.000\",\n    \"caption\": \"Following the titration, the scientist seals the burette and removes it from the flask. Text overlays instruct \\\"Don't forget to swirl flask\\\" and \\\"Check procedure in the worksheet.\\\" He then retrieves a worksheet titled \\\"RESULTS TABLE,\\\" which lists titre values for different concentrations. He taps the worksheet to confirm his calculations before proceeding.\",\n  },\n  {\n    \"start\": \"00:04.000\",\n    \"end\": \"00:04.000\",\n    \"caption\": \"The scientist reviews the titre values obtained from the titration. Text overlays instruct \\\"Average titre(cm^3) = 23.80,\\\" \\\"First titre(cm^3)= 23.85,\\\" \\\"Second titre(cm^3)= 23.80,\\\" \\\"Third titre(cm^3)= 23.80,\\\" and \\\"Mean titre(cm^3)= 23.80.\\\" He calculates the average titre value of 23.80 cm^3 and summarizes the results on the worksheet.\"\n  }\n]\n```\n==========\nPrompt: 11864 tokens, 722.113 tokens-per-sec\nGeneration: 577 tokens, 62.487 tokens-per-sec\nPeak memory: 5.599 GB"
+}
