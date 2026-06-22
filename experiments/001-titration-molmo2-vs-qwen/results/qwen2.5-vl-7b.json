@@ -1,0 +1,83 @@
+{
+  "output": [
+    {
+      "step": "Prepare burette with acid",
+      "start": 10.0,
+      "end": 15.0
+    },
+    {
+      "step": "Rinse burette with distilled water",
+      "start": 15.0,
+      "end": 20.0
+    },
+    {
+      "step": "Rinse burette with acid",
+      "start": 20.0,
+      "end": 25.0
+    },
+    {
+      "step": "Fill burette with acid",
+      "start": 25.0,
+      "end": 30.0
+    },
+    {
+      "step": "Add indicator to flask",
+      "start": 30.0,
+      "end": 35.0
+    },
+    {
+      "step": "Add sample to flask",
+      "start": 35.0,
+      "end": 40.0
+    },
+    {
+      "step": "Titrate with acid",
+      "start": 40.0,
+      "end": 45.0
+    },
+    {
+      "step": "Record initial reading",
+      "start": 45.0,
+      "end": 50.0
+    },
+    {
+      "step": "Titrate further",
+      "start": 50.0,
+      "end": 55.0
+    },
+    {
+      "step": "Record final reading",
+      "start": 55.0,
+      "end": 60.0
+    },
+    {
+      "step": "Calculate titre",
+      "start": 60.0,
+      "end": 65.0
+    },
+    {
+      "step": "Repeat titration",
+      "start": 65.0,
+      "end": 70.0
+    },
+    {
+      "step": "Record results",
+      "start": 70.0,
+      "end": 75.0
+    },
+    {
+      "step": "Calculate average titre",
+      "start": 75.0,
+      "end": 80.0
+    }
+  ],
+  "raw": "<|im_end|>\n<|im_start|>assistant\n\n```json\n[\n    {\"step\": \"Prepare burette with acid\", \"start\": 10.0, \"end\": 15.0},\n    {\"step\": \"Rinse burette with distilled water\", \"start\": 15.0, \"end\": 20.0},\n    {\"step\": \"Rinse burette with acid\", \"start\": 20.0, \"end\": 25.0},\n    {\"step\": \"Fill burette with acid\", \"start\": 25.0, \"end\": 30.0},\n    {\"step\": \"Add indicator to flask\", \"start\": 30.0, \"end\": 35.0},\n    {\"step\": \"Add sample to flask\", \"start\": 35.0, \"end\": 40.0},\n    {\"step\": \"Titrate with acid\", \"start\": 40.0, \"end\": 45.0},\n    {\"step\": \"Record initial reading\", \"start\": 45.0, \"end\": 50.0},\n    {\"step\": \"Titrate further\", \"start\": 50.0, \"end\": 55.0},\n    {\"step\": \"Record final reading\", \"start\": 55.0, \"end\": 60.0},\n    {\"step\": \"Calculate titre\", \"start\": 60.0, \"end\": 65.0},\n    {\"step\": \"Repeat titration\", \"start\": 65.0, \"end\": 70.0},\n    {\"step\": \"Record results\", \"start\": 70.0, \"end\": 75.0},\n    {\"step\": \"Calculate average titre\", \"start\": 75.0, \"end\": 80.0}\n]\n```\n==========\nPrompt: 5186 tokens, 231.937 tokens-per-sec\nGeneration: 399 tokens, 16.528 tokens-per-sec\nPeak memory: 18.139 GB\n",
+  "cell": "qwen2.5-vl-7b",
+  "model": "mlx-community/Qwen2.5-VL-7B-Instruct-bf16",
+  "path": "video",
+  "fps": 0.0667,
+  "every_s": null,
+  "seconds": 52.6,
+  "n_steps": 14,
+  "degenerate": false
+}

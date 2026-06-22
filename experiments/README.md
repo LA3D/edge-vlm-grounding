@@ -1,0 +1,22 @@
+# Experiments
+
+Self-contained experiment logs for edge-VLM procedure grounding. One folder per experiment, each with a re-runnable `run.py`, a captured `config.json`, raw `results/`, and a `REPORT.md` card. Inspired by [`karpathy/autoresearch`](https://github.com/karpathy/autoresearch) — small hackable scripts, captured config, a report card, an accumulating log — minus (for now) the autonomous proposer loop and automatic scoring. We're in interactive-exploration mode; this is the foundation an optimization loop would slot into later.
+
+## Leaderboard
+
+| # | Experiment | Question | Headline | Scoring |
+|---|-----------|----------|----------|---------|
+| [001](001-titration-molmo2-vs-qwen/REPORT.md) | Molmo2 vs Qwen2.5-VL on titration | Does native-video grounding beat frames-as-images on timestamps? | VLMs are reliable step *sequencers*, unreliable *clocks*; failure mode changes with model/input, boundary problem doesn't. Qwen2.5-VL-7B has the best step semantics. | manual |
+
+## Conventions
+
+- **One folder per experiment**: `NNN-short-slug/`.
+- **`config.json`** — every knob (clip, models, sampling, prompt, max_tokens, hardware). The reproducibility record.
+- **`run.py`** — self-contained; regenerates `results/` from `config.json`. `python run.py` runs all cells; `python run.py <cell-id> ...` re-runs a subset.
+- **`results/<cell>.json`** — raw per-cell output (committed; it's the evidence). Includes `degenerate: true` for failed cells — negative results are kept, not deleted.
+- **`REPORT.md`** — the card: Hypothesis · Setup · Results · Findings · Verdict · Open threads.
+- **Clips stay gitignored** (`clips/`), never committed; `config.json` records the source URL so a clip can be re-fetched.
+
+## Adding an experiment
+
+Copy `001-titration-molmo2-vs-qwen/`, bump the number, edit `config.json`, adjust `run.py` if the cells need a new input path, run it, then write `REPORT.md` and add a leaderboard row. (A capture skill to automate this scaffold is a candidate once the shape settles.)

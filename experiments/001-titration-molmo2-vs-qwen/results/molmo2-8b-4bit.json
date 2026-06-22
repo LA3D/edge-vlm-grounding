@@ -1,0 +1,113 @@
+{
+  "output": [
+    {
+      "step": "Setup",
+      "start": 0,
+      "end": 30
+    },
+    {
+      "step": "Add acid",
+      "start": 30,
+      "end": 45
+    },
+    {
+      "step": "Add indicator",
+      "start": 45,
+      "end": 60
+    },
+    {
+      "step": "Add alkali",
+      "start": 60,
+      "end": 75
+    },
+    {
+      "step": "Read burette",
+      "start": 75,
+      "end": 90
+    },
+    {
+      "step": "Record results",
+      "start": 90,
+      "end": 105
+    },
+    {
+      "step": "Repeat titration",
+      "start": 105,
+      "end": 120
+    },
+    {
+      "step": "Add more acid",
+      "start": 120,
+      "end": 135
+    },
+    {
+      "step": "Add more indicator",
+      "start": 135,
+      "end": 150
+    },
+    {
+      "step": "Add more alkali",
+      "start": 150,
+      "end": 165
+    },
+    {
+      "step": "Read burette again",
+      "start": 165,
+      "end": 180
+    },
+    {
+      "step": "Record second set of results",
+      "start": 180,
+      "end": 195
+    },
+    {
+      "step": "Repeat titration again",
+      "start": 195,
+      "end": 210
+    },
+    {
+      "step": "Add more acid again",
+      "start": 210,
+      "end": 225
+    },
+    {
+      "step": "Add more indicator again",
+      "start": 225,
+      "end": 240
+    },
+    {
+      "step": "Add more alkali again",
+      "start": 240,
+      "end": 255
+    },
+    {
+      "step": "Read burette for third time",
+      "start": 255,
+      "end": 270
+    },
+    {
+      "step": "Record third set of results",
+      "start": 270,
+      "end": 285
+    },
+    {
+      "step": "Review results",
+      "start": 285,
+      "end": 300
+    },
+    {
+      "step": "Prepare for final titration",
+      "start": 300,
+      "end": 315
+    }
+  ],
+  "raw": null,
+  "cell": "molmo2-8b-4bit",
+  "model": "mlx-community/Molmo2-8B-4bit",
+  "path": "frames",
+  "fps": null,
+  "every_s": 15,
+  "seconds": 130.3,
+  "n_steps": 20,
+  "degenerate": false
+}
