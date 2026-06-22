@@ -2,7 +2,7 @@
 
 Back-of-the-envelope experiments using small, edge-deployable vision-language models to **temporally ground experimental procedures** in video — recovering the *ordered, timestamped* sequence of steps (not single-moment retrieval).
 
-Starting model: **Molmo2** (Ai2) — runs locally on Apple Silicon via MLX and on the NVIDIA DGX Spark (GB10 Grace Blackwell) via vLLM/NVFP4. The calling code is kept OpenAI-API-shaped so Mac and Spark are swappable by base URL. Goal is a Molmo2-vs-Cosmos-Reason2 bake-off on the Spark.
+Anchor model: **Molmo2** (Ai2), with **Qwen2.5-VL** (Alibaba) and **Cosmos-Reason2** (NVIDIA) in a local MLX comparison ahead of a bake-off on the NVIDIA DGX Spark (GB10 Grace Blackwell) via vLLM/NVFP4. The calling code is kept OpenAI-API-shaped so Mac and Spark are swappable by base URL.
 
 Full plan, phases, and research context live in the Obsidian vault (see `CLAUDE.md`).
 
@@ -21,6 +21,16 @@ A family of open-weights **and** open-data VLMs from the Allen Institute for AI,
 | Model card | [allenai/Molmo2-8B](https://huggingface.co/allenai/Molmo2-8B) (also [Molmo2-4B](https://huggingface.co/allenai/Molmo2-4B)) |
 | MLX build | [mlx-community/Molmo2-8B-4bit](https://huggingface.co/mlx-community/Molmo2-8B-4bit) — converted from `allenai/Molmo2-8B` |
 | Code | [github.com/allenai/molmo2](https://github.com/allenai/molmo2) · [Ai2 platform docs](https://docs.allenai.org/models/molmo2) |
+
+## Also under test (local MLX comparison)
+
+The bake-off isn't Molmo2-only — we're comparing three open VLMs locally before the Spark. The load-bearing lesson from the experiments: **these are not interchangeable "feed it frames" boxes. Each takes its temporal signal through a different channel, and missing it silently degrades grounding** (timeline compression, repetition loops, placeholder timelines — never a clean error).
+
+| Model | How time enters | Local MLX status |
+|-------|-----------------|------------------|
+| **Molmo2-8B** (Ai2) | textual frame labels we inject (`image N: t=Xs`) | works via frames-as-images; boundaries snap to the label grid |
+| **Qwen2.5-VL-7B** (Alibaba) | native `fps` → absolute-time encoding (mRoPE) | strongest local result once `fps` is in its trained regime — [exp 002](experiments/002-qwen-fps-sweep/REPORT.md) |
+| **Cosmos-Reason2-2B** (NVIDIA) | pixel timestamps drawn on the frame | native recipe collapses on mlx-vlm `qwen3_vl`; needs a drawn `t=Ns` overlay — [exp 003](experiments/003-cosmos-timestamped/REPORT.md) |
 
 ## Grounding contract
 
@@ -117,7 +127,15 @@ The frame-sampling + prompt logic in `ground.py` is the same on both sides; only
 
 ## Experiments
 
-Structured, reproducible experiment logs live in [`experiments/`](experiments/) — one folder per run with a captured config, a re-runnable `run.py`, raw results, and a `REPORT.md` card ([autoresearch](https://github.com/karpathy/autoresearch)-style, minus the autonomous loop for now). Start at [`experiments/README.md`](experiments/README.md). First up: [001 — Molmo2 vs Qwen2.5-VL on a titration clip](experiments/001-titration-molmo2-vs-qwen/REPORT.md).
+Structured, reproducible logs live in [`experiments/`](experiments/) — one folder per run (captured config, re-runnable `run.py`, raw results, `REPORT.md` card; [autoresearch](https://github.com/karpathy/autoresearch)-style, minus the autonomous loop for now). Start at [`experiments/README.md`](experiments/README.md).
+
+| # | What | Headline |
+|---|------|----------|
+| [001](experiments/001-titration-molmo2-vs-qwen/REPORT.md) | Molmo2 vs Qwen2.5-VL on titration | VLMs are reliable step *sequencers*, unreliable *clocks* |
+| [002](experiments/002-qwen-fps-sweep/REPORT.md) | Qwen2.5-VL fps sweep | coverage scales with `fps`; 001's "collapse" was 30× too-sparse sampling |
+| [003](experiments/003-cosmos-timestamped/REPORT.md) | Cosmos-Reason2-2B | NVIDIA's native recipe collapses on MLX; a `t=Ns` overlay is the local workaround |
+
+**The through-line:** every model gets *ordering* right and *boundary precision* wrong, in a model-specific way. Treat the VLM as a reliable step **sequencer** and an unreliable **clock** — enforce order-of-operations separately (validate the emitted intervals against protocol constraints: Allen interval relations / SHACL), rather than trusting raw timestamps.
 
 ## Caveat
 
